@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ana's Cosméticos - Beleza & Cuidado</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Fonte Google Montserrat & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;500&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+  <!-- Ícones Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Cabeçalho / Navbar -->
+  <header>
+    <div class="container navbar">
+      <!-- Logo com Imagem -->
+      <a href="#" class="logo">
+        <img src="imagens/logo.jpg" alt="Ana's Cosméticos">
+      </a>
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#produtos">Produtos & Serviços</a></li>
+          <li><a href="#promocoes">Promoções</a></li>
+          <li><a href="#depoimentos">Avaliações</a></li>
+          <li><a href="#regras">Regras do Salão</a></li>
+          <li><a href="#entregas">Entregas</a></li>
+          <li><a href="#localizacao">Localização</a></li>
+        </ul>
+      </nav>
+      
+      <!-- Link do Instagram no Header -->
+      <a href="https://www.instagram.com/anas_cosmeticos2/" target="_blank" class="nav-instagram" title="Siga no Instagram">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+
+      <div class="menu-toggle" id="mobileMenu">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- Seção Principal (Hero) -->
+  <section id="inicio" class="hero">
+    <div class="container hero-content">
+      <h1>Realce sua beleza natural com a <span>Ana's Cosméticos</span></h1>
+      <p>Os melhores produtos de maquiagem, skincare, cuidados com os cabelos e atendimento especializado você encontra aqui.</p>
+      <a href="https://wa.me/5571989260465?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" class="btn-primary">
+        <i class="fa-brands fa-whatsapp"></i> Agendar Horário no WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- Seção Sobre -->
+  <section id="sobre" class="sobre">
+    <div class="container">
+      <h2>Sobre A Loja & Salão</h2>
+      <p>Na <strong>Ana's Cosméticos</strong>, trabalhamos para oferecer produtos de alta qualidade e atendimento especializado em tranças e cuidados para o seu dia a dia e momentos especiais. Venha conhecer nosso espaço!</p>
+    </div>
+  </section>
+
+  <!-- Seção Produtos/Destaques Gerenciáveis -->
+  <section id="produtos" class="produtos">
+    <div class="container">
+      <h2>Categorias & Serviços em Destaque</h2>
+      <div class="grid-produtos" id="gridProdutos">
+        <!-- Os cards de produtos e serviços serão gerados dinamicamente via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Promoções -->
+  <section id="promocoes" class="promocoes">
+    <div class="container">
+      <h2><i class="fa-solid fa-fire"></i> Promoções & Ofertas Imperdíveis</h2>
+      <p class="subtitle-promocoes">Fique atento às nossas ofertas especiais da semana!</p>
+
+      <div class="banner-promocional">
+        <img src="imagens/promocao.jpg" alt="Promoção do Mês" id="imgPromocao">
+      </div>
+
+      <a href="https://wa.me/5571989260465?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20as%20promo%C3%A7%C3%B5es%20da%20semana." target="_blank" class="btn-primary">
+        <i class="fa-brands fa-whatsapp"></i> Aproveitar Promoção no WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- Seção Depoimentos / Avaliações -->
+  <section id="depoimentos" class="depoimentos">
+    <div class="container">
+      <h2>O Que Dizem Nossas Clientes</h2>
+      <p class="subtitle-depoimentos">Quem compra e faz o cabelo na Ana's Cosméticos deixa sua opinião!</p>
+
+      <!-- Grade onde aparecem os comentários -->
+      <div class="grid-depoimentos" id="gridDepoimentos">
+        <!-- Comentários reais dos clientes -->
+      </div>
+
+      <!-- Botão para abrir o formulário de deixar avaliação -->
+      <div class="container-btn-avaliar">
+        <button id="btnAbrirForm" class="btn-secondary">
+          <i class="fa-solid fa-comment-dots"></i> Deixar Minha Avaliação
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Formulário de Avaliação (Clientes) -->
+  <div id="formModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeForm">&times;</span>
+      <h3>Deixe seu Comentário</h3>
+      <p>Sua opinião é muito importante para nós!</p>
+      
+      <form id="formAvaliacao">
+        <div class="form-group">
+          <label for="nomeCliente">Seu Nome:</label>
+          <input type="text" id="nomeCliente" required placeholder="Ex: Maria Silva">
+        </div>
+
+        <div class="form-group">
+          <label for="textoCliente">Seu Comentário:</label>
+          <textarea id="textoCliente" rows="4" required placeholder="Escreva o que achou dos produtos ou do salão..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary">Enviar Avaliação</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Seção Regras e Recomendações -->
+  <section id="regras" class="regras-secao">
+    <div class="container">
+      <h2>Regras & Recomendações do Salão</h2>
+      <p class="subtitle-regras">Para garantir a melhor experiência e cuidado com você!</p>
+
+      <div class="grid-regras">
+        <!-- Coluna Regras -->
+        <div class="col-regras">
+          <div class="header-col red">
+            <i class="fa-solid fa-shield-halved"></i>
+            <h3>Regras do Salão</h3>
+          </div>
+          <ul class="lista-regras">
+            <li>
+              <i class="fa-solid fa-ban icon-rule"></i>
+              <div>
+                <strong>Não fazemos trocas de mercadorias</strong>
+                <p>Todos os produtos e serviços são conferidos antes da entrega.</p>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-box-open icon-rule"></i>
+              <div>
+                <strong>Não permitimos que mecham/violam embalagens</strong>
+                <p>Para sua segurança e garantia de qualidade.</p>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-hand-holding-dollar icon-rule"></i>
+              <div>
+                <strong>Não vendemos fiado nem a prazo</strong>
+                <p>Trabalhamos apenas com pagamento à vista.</p>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-triangle-exclamation icon-rule"></i>
+              <div>
+                <strong>Não abrimos exceção, pfvr não insista</strong>
+                <p>Nossas regras são para o bem de todos e do nosso trabalho.</p>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-clock icon-rule"></i>
+              <div>
+                <strong>Tolerância de 15 minutos</strong>
+                <p>Atrasos maiores poderão resultar em remarcação.</p>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-calendar-check icon-rule"></i>
+              <div>
+                <strong>Agende seu horário com antecedência</strong>
+                <p>Seu horário é importante e deve ser respeitado.</p>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-users-slash icon-rule"></i>
+              <div>
+                <strong>Não leve acompanhantes (exceto crianças)</strong>
+                <p>Para não atrapalhar o atendimento e o ambiente de trabalho.</p>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-bullhorn icon-rule"></i>
+              <div>
+                <strong>Respeite nossa equipe e o ambiente</strong>
+                <p>Trate todos com educação e cordialidade. Não toleramos desrespeito.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Coluna Recomendações -->
+        <div class="col-regras">
+          <div class="header-col gold">
+            <i class="fa-solid fa-heart"></i>
+            <h3>Recomendações</h3>
+          </div>
+          <ul class="lista-regras">
+            <li>
+              <i class="fa-solid fa-droplet icon-rec"></i>
+              <div>
+                <strong>Hidrate seus cabelos antes e depois da trança</strong>
+                <p>Cabelos saudáveis garantem um resultado ainda melhor.</p>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-bottle-droplet icon-rec"></i>
+              <div>
+                <strong>Use produtos adequados para cabelos com tranças</strong>
+                <p>Shampoo diluído, cremes leves e óleos são seus melhores aliados.</p>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-bed icon-rec"></i>
+              <div>
+                <strong>Proteja seus cabelos para dormir</strong>
+                <p>Use touca ou fronha de cetim/seda para reduzir o atrito e o frizz.</p>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-calendar-days icon-rec"></i>
+              <div>
+                <strong>Faça a manutenção no tempo certo</strong>
+                <p>Isso aumenta a durabilidade da trança e mantém o couro cabeludo saudável.</p>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-user-gear icon-rec"></i>
+              <div>
+                <strong>Cuide do seu couro cabeludo</strong>
+                <p>Mantenha-o limpo e hidratado para evitar coceira e descamação.</p>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-sun icon-rec"></i>
+              <div>
+                <strong>Evite exposição excessiva ao sol e ao mar/piscina</strong>
+                <p>Use proteção e enxágue os cabelos após o contato.</p>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-hand-holding-heart icon-rec"></i>
+              <div>
+                <strong>Em caso de qualquer incômodo, nos avise</strong>
+                <p>Nossa equipe está aqui para te orientar e cuidar de você.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Cards de Agendamento e Remarcação -->
+      <div class="grid-avisos-agendamento">
+        <div class="card-aviso-sinal">
+          <i class="fa-solid fa-calendar-plus icon-aviso"></i>
+          <div>
+            <h4>Sinal de Marcação</h4>
+            <p>É cobrado o valor de <strong>R$ 30,00</strong> para marcação. Esse valor é descontado no valor do seu atendimento. Caso haja desistência, o valor <strong>não será reembolsado!</strong></p>
+          </div>
+        </div>
+        <div class="card-aviso-remarcacao">
+          <i class="fa-solid fa-bell icon-aviso"></i>
+          <div>
+            <h4>Imprevistos & Remarcações</h4>
+            <p>Caso haja imprevisto e não possa comparecer, avise com antecedência <strong>2 ou 1 dia antes</strong>. O cliente tem direito de remarcar <strong>apenas 1 vez!</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <p class="agradecimento-salao">Agradecemos sua compreensão e confiança em nosso trabalho! <span>Você é especial!</span></p>
+    </div>
+  </section>
+
+  <!-- Seção Entregas -->
+  <section id="entregas" class="entregas">
+    <div class="container">
+      <h2>Entregas Rápida e com Carinho!</h2>
+      <p class="subtitle-entregas">Anunciamos para nossos clientes as nossas opções de envio:</p>
+
+      <div class="metodos-entrega">
+        <div class="metodo-card">
+          <i class="fa-solid fa-person-biking icon-entrega"></i>
+          <h3>Nosso Entregador</h3>
+          <p>Agora temos nosso entregador próprio para realizar entregas com mais agilidade e cuidado.</p>
+        </div>
+        <div class="metodo-card">
+          <i class="fa-solid fa-car icon-entrega"></i>
+          <h3>Uber Flash</h3>
+          <p>Envios rápidos no dia a dia através do serviço de entrega do Uber Flash.</p>
+        </div>
+      </div>
+
+      <!-- Regiões Atendidas -->
+      <div class="taxas-container">
+        <h3><i class="fa-solid fa-motorcycle"></i> Regiões Atendidas pelo Nosso Entregador</h3>
+        <p class="aviso-taxa">Consulte a taxa de entrega para Lauro de Freitas e regiões próximas:</p>
+        
+        <ul class="lista-bairros">
+          <li><i class="fa-solid fa-location-dot"></i> ITINGA</li>
+          <li><i class="fa-solid fa-location-dot"></i> VIDA NOVA / CAJI</li>
+          <li><i class="fa-solid fa-location-dot"></i> LAURO DE FREITAS</li>
+          <li><i class="fa-solid fa-location-dot"></i> SÃO CRISTÓVÃO</li>
+        </ul>
+
+        <a href="https://wa.me/5571989260465?text=Ol%C3%A1%21%20Gostaria%20de%20consultar%20a%20taxa%20de%20entrega%20para%20o%20meu%20bairro." target="_blank" class="btn-primary">
+          <i class="fa-brands fa-whatsapp"></i> Consultar Taxa de Entrega
+        </a>
+      </div>
+
+      <p class="slogan-entrega"><i class="fa-regular fa-heart"></i> Sua beleza, a gente entrega com amor! <i class="fa-regular fa-heart"></i></p>
+    </div>
+  </section>
+
+  <!-- Seção Localização & Mapa -->
+  <section id="localizacao" class="localizacao">
+    <div class="container">
+      <h2>Onde Estamos</h2>
+      <p>Venha nos fazer uma visita no nosso endereço oficial:</p>
+      
+      <div class="mapa-container">
+        <!-- Mapa incorporado do Google Maps -->
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.2435689104!2d-38.3390049!3d-12.8961788!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7161754893a9091%3A0xf5b67bb275429354!2sAna&#39;s%20cosm%C3%A9ticos!5e0!3m2!1wpt-BR!2sbr!4v1710000000000!5m2!1wpt-BR!2sbr" 
+          width="100%" 
+          height="350" 
+          style="border:0; border-radius: 12px;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+      
+      <div class="rota-btn">
+        <a href="https://maps.app.goo.gl/vfHrpEeVwPmZcMFN7" target="_blank" class="btn-secondary">
+          <i class="fa-solid fa-location-dot"></i> Abrir no Google Maps
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Admin Protegido Expandido -->
+  <div id="adminModal" class="modal">
+    <div class="modal-content modal-admin-large">
+      <span class="close-btn" id="closeAdmin">&times;</span>
+      <h3><i class="fa-solid fa-user-gear"></i> Painel do Proprietário</h3>
+      
+      <div class="admin-sections">
+        <!-- Bloco 1: Alterar Promoção -->
+        <div class="admin-card">
+          <h4><i class="fa-solid fa-image"></i> Alterar Foto da Promoção</h4>
+          <p>Selecione a nova foto para o banner:</p>
+          <input type="file" id="inputPromoImg" accept="image/*">
+          <br><br>
+          <button id="btnSalvarPromo" class="btn-primary-sm"><i class="fa-solid fa-check"></i> Atualizar Promoção</button>
+        </div>
+
+        <!-- Bloco 2: Cadastrar Novo Destaque / Serviço -->
+        <div class="admin-card">
+          <h4><i class="fa-solid fa-plus"></i> Novo Destaque ou Serviço</h4>
+          <p>Adicione um card à seção de produtos/serviços:</p>
+          <form id="formNovoProduto">
+            <div class="form-group">
+              <label>Título (ex: Tranças Box Braids, Maquiagem):</label>
+              <input type="text" id="tituloProd" required placeholder="Título do item">
+            </div>
+            <div class="form-group">
+              <label>Descrição Curta:</label>
+              <textarea id="descProd" rows="2" required placeholder="Breve explicação..."></textarea>
+            </div>
+            <div class="form-group">
+              <label>Ícone (FontAwesome class):</label>
+              <select id="iconeProd">
+                <option value="fa-solid fa-sparkles">✨ Brilho / Maquiagem</option>
+                <option value="fa-solid fa-pump-soap">🧴 Skincare</option>
+                <option value="fa-solid fa-wand-magic-sparkles">🪄 Cabelos & Tranças</option>
+                <option value="fa-solid fa-spray-can">🧴 Perfumaria</option>
+                <option value="fa-solid fa-scissors">✂️ Corte / Estilo</option>
+                <option value="fa-solid fa-heart">❤️ Cuidado Especial</option>
+              </select>
+            </div>
+            <button type="submit" class="btn-primary-sm"><i class="fa-solid fa-plus"></i> Adicionar Card</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container footer-content">
+      <p>&copy; 2026 Ana's Cosméticos. Todos os direitos reservados.</p>
+      <div class="socials">
+        <a href="https://maps.app.goo.gl/vfHrpEeVwPmZcMFN7" target="_blank" title="Google Maps"><i class="fa-brands fa-google"></i></a>
+        <a href="https://www.instagram.com/anas_cosmeticos2/" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+      <button id="btnAbrirAdmin" class="btn-admin-access"><i class="fa-solid fa-key"></i> Área do Proprietário</button>
+    </div>
+  </footer>
+
+  <!-- Botão Flutuante de WhatsApp -->
+  <a href="https://wa.me/5571989260465?text=Ol%C3%A1%21%20Vim%20pelo%20site." class="whatsapp-float" target="_blank">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
